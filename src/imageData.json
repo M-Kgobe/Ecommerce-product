@@ -1,0 +1,26 @@
+[
+    {
+        "id":1,
+        "alt":"main shoe display",
+        "dispImg":"images/image-product-1.jpg",
+        "thumbImg":"images/image-product-1-thumbnail.jpg"
+    },
+    {
+        "id":2,
+        "alt":"display on rocks and a branch",
+        "dispImg":"images/image-product-2.jpg",
+        "thumbImg":"images/image-product-2-thumbnail.jpg"
+    },
+    {
+        "id":3,
+        "alt":"display on rocks",
+        "dispImg":"images/image-product-3.jpg",
+        "thumbImg":"images/image-product-3-thumbnail.jpg"
+    },
+    {
+        "id":4,
+        "alt":"display on rocks",
+        "dispImg":"images/image-product-4.jpg",
+        "thumbImg":"images/image-product-4-thumbnail.jpg"
+    }
+]

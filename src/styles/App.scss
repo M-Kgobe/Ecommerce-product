@@ -1,0 +1,101 @@
+@use "../components/scss/variables.scss" as vars;
+
+.App {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+  align-items:center;
+}
+// header
+header {
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid vars.$grayishBlue;
+	width: 90%;
+	max-width: 76.875rem;
+	padding: 1.5rem 0;
+	gap: 5rem;
+
+	.logo {
+		max-width: 8.625rem;
+	}
+	.navBar {
+		display: flex;
+		justify-content: space-between;
+		max-width: calc(76.875rem - 8.625rem);
+		width: 100%;
+		position: relative;
+
+    .emptyCart {
+      display: flex;
+      justify-content: center;
+          align-items: center;
+      padding: 2rem 0;
+    }
+	}
+  .checkOutInfo{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 1rem;    
+
+    .cartThumb{
+      width: 20%;
+      border-radius: 2px;
+      overflow: hidden;
+
+      img{
+        width: 100%;
+      }
+    }
+    .adjCart{
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      p{
+        font-size: 14px;
+      color: vars.$grayishBlue;
+
+        span{
+          font-weight: 700;
+          color: vars.$veryDarkBlue;
+        }
+      }
+
+      a{
+        color: vars.$grayishBlue;
+        transition: all 300ms linear;
+
+        &:hover{
+          color: red;
+        }
+
+      }
+    }
+  }
+  .checkOut{
+    background-color: vars.$orange;
+    font-family: inherit;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 1rem;
+    padding: 1rem 0;
+    width: 90%;
+    margin-bottom: 1rem;
+    color: vars.$white;
+    transition: all 300ms linear;
+
+    &:hover{
+      opacity: 0.6;
+    }
+  }
+}
+
+// main
+main {
+	display: flex;
+	width: 100%;
+	padding-top: 4rem;
+}
