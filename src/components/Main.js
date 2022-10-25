@@ -1,18 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartPlus, faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import style from "./scss/main.module.scss";
 import images from "../imageData.json";
-import { faCartPlus, faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
+import Display from "./Display";
 
 function Main({count,minus,plus,onClickToCart}) {
 	const price = 250;
 	const discount = 0.5;
 	const saleAmount = price * discount;
+	const thumbRef = useRef()
 	const [displayPic, setDisplayPic] = useState(
 		<img src={images[0].dispImg} alt={images[0].alt} />
 	);
-	const thumbElements = images.map((image, index) => (
-		<li key={image.id} onClick={changeDisplay}>
+	const thumbElements = images && images.map((image, index) => (
+		<li key={image.id} onClick={changeDisplay} ref={thumbRef}>
 			<img src={image.thumbImg} alt={image.alt} />
 		</li>
 	));
@@ -20,15 +22,25 @@ function Main({count,minus,plus,onClickToCart}) {
 	function changeDisplay(e) {
 		const url = e.target.src.replace("-thumbnail", "");
 		setDisplayPic(<img src={url} alt={e.target.alt} />);
+		thumbRef.current.classList.toggle(`${style.activeThumb}`);
+		console.log(thumbRef);
+	}
+	function viewDisplay() {
+		
 	}
 
 	return (
 		<>
 			<main>
-				<section className={style.imgDisplay}>
-					<div className={style.mainDisp}>{displayPic}</div>
+				<Display
+					displayPic={displayPic}
+					thumbElements={thumbElements}
+					viewDisplay={viewDisplay}
+				/>
+				{/* <section className={style.imgDisplay}>
+					<div className={style.mainDisp} onClick={viewDisplay} >{displayPic}</div>
 					<ul className={style.imgThumbs}>{thumbElements}</ul>
-				</section>
+				</section> */}
 				<section className={style.hero}>
 					<div className={style.heroInfo}>
 						<h3>Sneaker Company</h3>

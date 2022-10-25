@@ -2,8 +2,8 @@
     {
         "id":1,
         "alt":"main shoe display",
-        "dispImg":"images/image-product-1.jpg",
-        "thumbImg":"images/image-product-1-thumbnail.jpg"
+        "dispImg":"./images/image-product-1.jpg",
+        "thumbImg":"./images/image-product-1-thumbnail.jpg"
     },
     {
         "id":2,

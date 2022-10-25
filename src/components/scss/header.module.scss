@@ -83,7 +83,7 @@
 	}
 }
 .cartInfo {
-    display: flex;
+    display: none;
     flex-direction: column;
 	align-items: center;
 	position: absolute;
@@ -94,6 +94,9 @@
 	box-shadow: 0 0 10px vars.$black;
 	border-radius: 10px;
 
+	&.activeCart{
+		display: flex;
+	}
 	h4 {
 		padding: 1rem 2rem;
 		color: vars.$veryDarkBlue;
@@ -106,3 +109,4 @@
 		height: 1px;
 	}
 }
+

@@ -22,6 +22,10 @@ function App() {
 	function plus() {
 		setCount((prevCount) => (prevCount += 1));
 	}
+	function resetCart() {
+		setItemsInCart(null)
+		setCheckOutItems(<p className="emptyCart">Your cart is empty</p>);
+	}
 	function addToCart() {
 		setItemsInCart(count);
 		setCount(0);
@@ -43,7 +47,7 @@ function App() {
 									Fall Limited Edition Sneakers $125.00 x {count}
 									<span>{` $${125 * count}`}</span>
 								</p>
-								<a href="#!">
+								<a href="#!" onClick={resetCart}>
 									<FontAwesomeIcon icon={faTrashAlt} />
 								</a>
 							</div>
