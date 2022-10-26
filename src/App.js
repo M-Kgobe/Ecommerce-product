@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState} from "react";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import "./styles/App.scss";
@@ -11,6 +11,7 @@ function App() {
 	const [count, setCount] = useState(0);
 	const [itemsInCart, setItemsInCart] = useState(null);
 	const [checkOutItems, setCheckOutItems] = useState(<p className="emptyCart">Your cart is empty</p>);
+
 
 	function minus() {
 		if (count <= 0) {

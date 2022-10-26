@@ -7,13 +7,18 @@
 	justify-content: center;
 	width: 50%;
 	gap: 3rem;
-
+	
 	.mainDisp {
 		width: 20rem;
 		height: 20rem;
 		border-radius: 10px;
 		overflow: hidden;
+		border: 1px solid vars.$orange;
+		cursor: pointer;
 
+		a{
+			display: none;
+		}
 		img {
 			width: 100%;
 		}
@@ -28,6 +33,7 @@
 			height: 5rem;
 			border-radius: 10px;
 			overflow: hidden;
+			cursor: pointer;
 
 			&.activeThumb {
 				background-color: vars.$paleOrange;

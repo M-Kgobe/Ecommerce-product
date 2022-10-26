@@ -1,0 +1,86 @@
+@use "./variables.scss" as vars;
+.activeDisplay {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 40%;
+	max-height: 70%;
+	gap: 3rem;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+
+	&:focus {
+		background-color: red;
+	}
+
+	.mainDispActive {
+        display: flex;
+        align-items: center;
+		width: 20rem;
+		height: 20rem;
+		border-radius: 10px;
+		box-shadow:0 0 90rem 15rem vars.$grayishBlue;
+		border: 1px solid vars.$orange;
+        cursor: pointer;
+        position: relative;
+        a{
+            position: absolute;
+            border-radius: 50%;
+            font-size: 1rem;
+            padding: .8rem;
+            color: vars.$orange;
+            background-color: vars.$paleOrange;
+            transition: all 200ms linear;
+
+            &:hover{
+                color: vars.$white;
+                background-color: vars.$orange
+            }
+
+            &.left{
+                left: -1rem;
+            }
+            &.right{
+                right: -1rem;
+            }
+            &.close{
+                top: -3rem;
+                right: -2rem;
+                background-color: unset;
+            }
+        }
+		img {
+			width: 100%;
+		}
+	}
+
+	.imgThumbsActive {
+		display: flex;
+		gap: 2rem;
+        z-index: 2;
+
+		li {
+			width: 5rem;
+			height: 5rem;
+			border-radius: 10px;
+			overflow: hidden;
+			cursor: pointer;
+            border: 1px solid vars.$orange;
+
+			&.activeThumb {
+				background-color: vars.$paleOrange;
+				border: 2px solid vars.$orange;
+			}
+			img {
+				width: 100%;
+
+				&.activeThumb {
+					opacity: 0.3;
+				}
+			}
+		}
+	}
+}

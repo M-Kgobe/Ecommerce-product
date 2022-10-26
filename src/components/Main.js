@@ -5,19 +5,24 @@ import style from "./scss/main.module.scss";
 import images from "../imageData.json";
 import Display from "./Display";
 
-function Main({count,minus,plus,onClickToCart}) {
+function Main({ count, minus, plus, onClickToCart }) {
 	const price = 250;
 	const discount = 0.5;
 	const saleAmount = price * discount;
-	const thumbRef = useRef()
+	const thumbRef = useRef();
+	const displayRef = useRef();
+	const displayRefActive = useRef();
+	const [displayModal, setDisplayModal] = useState(false);
 	const [displayPic, setDisplayPic] = useState(
 		<img src={images[0].dispImg} alt={images[0].alt} />
 	);
-	const thumbElements = images && images.map((image, index) => (
-		<li key={image.id} onClick={changeDisplay} ref={thumbRef}>
-			<img src={image.thumbImg} alt={image.alt} />
-		</li>
-	));
+	const thumbElements =
+		images &&
+		images.map((image, index) => (
+			<li key={image.id} onClick={changeDisplay} ref={thumbRef}>
+				<img src={image.thumbImg} alt={image.alt} />
+			</li>
+		));
 
 	function changeDisplay(e) {
 		const url = e.target.src.replace("-thumbnail", "");
@@ -25,22 +30,28 @@ function Main({count,minus,plus,onClickToCart}) {
 		thumbRef.current.classList.toggle(`${style.activeThumb}`);
 		console.log(thumbRef);
 	}
-	function viewDisplay() {
-		
+	function openDisplay() {
+		console.log("clicked display");
+		console.log(displayRefActive.current);
+		displayRef.current.classList.add(`${style.activeDisplay}`)
+		setDisplayModal(true)
 	}
 
 	return (
 		<>
 			<main>
-				<Display
+				{/* <Display
 					displayPic={displayPic}
 					thumbElements={thumbElements}
-					viewDisplay={viewDisplay}
-				/>
-				{/* <section className={style.imgDisplay}>
-					<div className={style.mainDisp} onClick={viewDisplay} >{displayPic}</div>
+					openDisplayClick={openDisplay}
+					displayRef={displayRef}
+				/> */}
+				<section className={style.imgDisplay} ref={displayRef}>
+					<div className={style.mainDisp} onClick={openDisplay}>
+						{displayPic}
+					</div>
 					<ul className={style.imgThumbs}>{thumbElements}</ul>
-				</section> */}
+				</section>
 				<section className={style.hero}>
 					<div className={style.heroInfo}>
 						<h3>Sneaker Company</h3>
@@ -74,6 +85,7 @@ function Main({count,minus,plus,onClickToCart}) {
 					</div>
 				</section>
 			</main>
+			{displayModal && <Display displayRefActive={displayRefActive} displayModal={displayModal} />}
 		</>
 	);
 }
