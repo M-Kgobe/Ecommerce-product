@@ -18,6 +18,9 @@
 			&:hover {
 				transition: all 200ms linear;
 				color: vars.$veryDarkBlue;
+				// @include vars.tablet {
+				// 	color: lime;
+				// }
 			}
 
 			&::after {
@@ -57,7 +60,7 @@
 				color: vars.$veryDarkBlue;
 			}
 		}
-		sup{
+		sup {
 			position: absolute;
 			color: vars.$orange;
 			font-weight: 700;
@@ -83,8 +86,8 @@
 	}
 }
 .cartInfo {
-    display: none;
-    flex-direction: column;
+	display: none;
+	flex-direction: column;
 	align-items: center;
 	position: absolute;
 	width: 30%;
@@ -94,7 +97,7 @@
 	box-shadow: 0 0 10px vars.$black;
 	border-radius: 10px;
 
-	&.activeCart{
+	&.activeCart {
 		display: flex;
 	}
 	h4 {
@@ -109,4 +112,3 @@
 		height: 1px;
 	}
 }
-

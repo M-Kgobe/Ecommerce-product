@@ -7,3 +7,13 @@ $black: hsla(0, 0%, 0%, 0.75); //(with 75% opacity for lightbox background)
 $orange: hsl(26, 100%, 55%);
 $paleOrange: hsl(25, 100%, 94%);
 
+@mixin mobile {
+	@media screen and (max-width: 768px) {
+		@content;
+	}
+}
+@mixin tablet {
+	@media screen and (max-width: 992px) {
+		@content;
+	}
+}
