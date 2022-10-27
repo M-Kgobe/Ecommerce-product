@@ -4,17 +4,15 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	width: 40%;
-	max-height: 70%;
+	width: 100%;
+	max-height: 100%;
 	gap: 3rem;
 	position: absolute;
 	top: 0;
 	bottom: 0;
 	margin: auto;
-
-	&:focus {
-		background-color: red;
-	}
+	background-color: vars.$black;
+	// backdrop-filter: blur(40.7742px);
 
 	.mainDispActive {
         display: flex;
@@ -22,7 +20,6 @@
 		width: 20rem;
 		height: 20rem;
 		border-radius: 10px;
-		box-shadow:0 0 90rem 15rem vars.$grayishBlue;
 		border: 1px solid vars.$orange;
         cursor: pointer;
         position: relative;
@@ -31,25 +28,25 @@
             border-radius: 50%;
             font-size: 1rem;
             padding: .8rem;
-            color: vars.$orange;
-            background-color: vars.$paleOrange;
+			color: vars.$white;
+            background-color: vars.$white;
             transition: all 200ms linear;
 
-            &:hover{
-                color: vars.$white;
-                background-color: vars.$orange
-            }
-
             &.left{
+				color: vars.$darkGrayishBlue;
                 left: -1rem;
             }
             &.right{
+				color: vars.$darkGrayishBlue;
                 right: -1rem;
             }
             &.close{
                 top: -3rem;
-                right: -2rem;
+                right: -1rem;
                 background-color: unset;
+            }
+			&:hover{
+				color: vars.$orange;
             }
         }
 		img {
@@ -76,6 +73,7 @@
 			}
 			img {
 				width: 100%;
+				height: 100%;
 
 				&.activeThumb {
 					opacity: 0.3;

@@ -33,10 +33,12 @@ function Main({ count, minus, plus, onClickToCart }) {
 	function openDisplay() {
 		console.log("clicked display");
 		console.log(displayRefActive.current);
-		displayRef.current.classList.add(`${style.activeDisplay}`)
-		setDisplayModal(true)
+		displayRef.current.classList.add(`${style.activeDisplay}`);
+		setDisplayModal(true);
 	}
-
+	function closeDisplay() {
+		setDisplayModal(false);
+	}
 	return (
 		<>
 			<main>
@@ -85,7 +87,13 @@ function Main({ count, minus, plus, onClickToCart }) {
 					</div>
 				</section>
 			</main>
-			{displayModal && <Display displayRefActive={displayRefActive} displayModal={displayModal} />}
+			{displayModal && (
+				<Display
+					displayRefActive={displayRefActive}
+					displayModal={displayModal}
+					closeDisplay={closeDisplay}
+				/>
+			)}
 		</>
 	);
 }
