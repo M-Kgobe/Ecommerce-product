@@ -23,17 +23,40 @@ function Display({ displayRefActive, displayModal, closeDisplay }) {
 		console.log(images.length);
 	}
 	function next() {
-		const imgNum = displayPicActive.props.src.slice(-5, -4);
-		console.log(displayPicActive)
-		console.log(imgNum)
-		let i = parseInt(imgNum)
-
-		if (i === images.length) {
-			i = 1
-			console.log('starting again');
+		var imgNum = parseInt(displayPicActive.props.src.slice(-5, -4));
+		var url;
+		if (imgNum >= images.length) {
+			url = displayPicActive.props.src.replace(`-${imgNum}`, `-${1}`);
+		} else {
+			url = displayPicActive.props.src.replace(
+				`-${imgNum}`,
+				`-${imgNum+1}`
+			);
 		}
-		setDisplayPicActive()
+		setDisplayPicActive(<img src={url} alt={displayPicActive.props.alt} />);
+		console.log(displayPicActive)
+		console.log(url)
+
 	}
+		function prev() {
+			var imgNum = parseInt(displayPicActive.props.src.slice(-5, -4));
+			var url;
+			if (imgNum <= 1 ) {
+				url = displayPicActive.props.src.replace(
+					`-${imgNum}`,
+					`-${images.length}`
+				);
+			} else {
+				url = displayPicActive.props.src.replace(
+					`-${imgNum}`,
+					`-${imgNum - 1}`
+				);
+			}
+			setDisplayPicActive(<img src={url} alt={displayPicActive.props.alt} />);
+			console.log(displayPicActive);
+			console.log(url);
+		}
+	
 	// useEffect(() => {
 	// 	function outSideClick(e) {
 	// 		if (!displayRefActive.current.contains(e.target)) {
@@ -54,7 +77,7 @@ function Display({ displayRefActive, displayModal, closeDisplay }) {
 		<>
 			<section className={style.activeDisplay} ref={displayRefActive}>
 				<div className={style.mainDispActive}>
-					<a href="#!" className={style.left}>
+					<a href="#!" className={style.left} onClick={prev}>
 						<FontAwesomeIcon icon={faAngleLeft} />
 					</a>
 					{displayPicActive}
