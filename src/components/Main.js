@@ -28,11 +28,8 @@ function Main({ count, minus, plus, onClickToCart }) {
 		const url = e.target.src.replace("-thumbnail", "");
 		setDisplayPic(<img src={url} alt={e.target.alt} />);
 		thumbRef.current.classList.toggle(`${style.activeThumb}`);
-		console.log(thumbRef);
 	}
 	function openDisplay() {
-		console.log("clicked display");
-		console.log(displayRefActive.current);
 		displayRef.current.classList.add(`${style.activeDisplay}`);
 		setDisplayModal(true);
 	}

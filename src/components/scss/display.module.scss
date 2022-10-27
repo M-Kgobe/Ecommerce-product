@@ -51,6 +51,7 @@
         }
 		img {
 			width: 100%;
+			border-radius: inherit;
 		}
 	}
 
@@ -59,21 +60,35 @@
 		gap: 2rem;
         z-index: 2;
 
-		li {
+		li.notActive {
 			width: 5rem;
 			height: 5rem;
 			border-radius: 10px;
 			overflow: hidden;
 			cursor: pointer;
-            border: 1px solid vars.$orange;
+			border: 1px solid blue;
+			transition: all 200ms linear;
 
-			&.activeThumb {
-				background-color: vars.$paleOrange;
-				border: 2px solid vars.$orange;
-			}
+
 			img {
 				width: 100%;
 				height: 100%;
+				border-radius: inherit;
+			}
+		}
+		li.activeThumb{
+			width: 5rem;
+			height: 5rem;
+			border-radius: 10px;
+			overflow: hidden;
+			cursor: pointer;
+			background-color: vars.$paleOrange;
+			border: 1px solid vars.$orange;
+
+			img {
+				width: 100%;
+				height: 100%;
+				border-radius: inherit;
 
 				&.activeThumb {
 					opacity: 0.3;
