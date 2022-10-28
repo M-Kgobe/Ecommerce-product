@@ -76,6 +76,10 @@
 				width: 100%;
 				height: 100%;
 				border-radius: inherit;
+
+				&:hover{
+					opacity: 0.5;
+				}
 			}
 		}
 		li.activeThumb {
@@ -91,8 +95,34 @@
 				width: 100%;
 				height: 100%;
 				border-radius: inherit;
-				opacity: 0.3;
+				opacity: 0.5;
 			}
+		}
+	}
+}
+// Tablet size
+
+// Mobile Size
+.activeDisplay{
+	@include vars.tablet{
+		position: relative;
+		background-color: unset;
+		.mainDispActive{
+			width: 100%;
+			a{
+				&.left{
+					left: 2rem;
+				}
+				&.right{
+					right: 2rem;
+				}
+				&.close{
+					display: none;
+				}
+			}
+		}
+		.imgThumbsActive{
+			display: none;
 		}
 	}
 }

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useLayoutEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus, faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import style from "./scss/main.module.scss";
@@ -36,25 +36,45 @@ function Main({ count, minus, plus, onClickToCart }) {
 	function closeDisplay() {
 		setDisplayModal(false);
 	}
+	function useWindowSize() {
+		const [size, setSize] = useState([0, 0]);
+		useLayoutEffect(() => {
+			function screenSize() {
+				setSize([window.innerWidth, window.innerHeight]);
+			}
+			window.addEventListener("resize", screenSize);
+			screenSize();
+			return () => {
+				window.removeEventListener("resize", screenSize);
+			};
+		}, []);
+		return size;
+	}
+	const [width, height] = useWindowSize();
 	return (
 		<>
 			<main>
-				{/* <Display
-					displayPic={displayPic}
-					thumbElements={thumbElements}
-					openDisplayClick={openDisplay}
-					displayRef={displayRef}
-				/> */}
-				<section className={style.imgDisplay} ref={displayRef}>
-					<div className={style.mainDisp} onClick={openDisplay}>
-						{displayPic}
-					</div>
-					<ul className={style.imgThumbs}>{thumbElements}</ul>
-				</section>
+				{width <= 767 ? (
+					<Display
+						displayRefActive={displayRefActive}
+						displayModal={displayModal}
+						closeDisplay={closeDisplay}
+					/>
+				) : (
+					<section className={style.imgDisplay} ref={displayRef}>
+						<div className={style.mainDisp} onClick={openDisplay}>
+							{displayPic}
+						</div>
+						<ul className={style.imgThumbs}>{thumbElements}</ul>
+					</section>
+				)}
+
 				<section className={style.hero}>
 					<div className={style.heroInfo}>
 						<h3>Sneaker Company</h3>
-						<h1>Fall Limited Edition Sneakers</h1>
+						<h1>
+							Fall Limited Edition Sneakers
+						</h1>
 						<p>
 							These low-profile sneakers are your perfect casual wear companion.
 							Featuring a durable rubber outer sole, they’ll withstand

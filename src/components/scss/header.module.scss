@@ -5,6 +5,10 @@
 	justify-content: space-between;
 	align-items: center;
 	gap: 3rem;
+
+	.tablet {
+		display: none;
+	}
 	li {
 		position: relative;
 
@@ -18,9 +22,6 @@
 			&:hover {
 				transition: all 200ms linear;
 				color: vars.$veryDarkBlue;
-				// @include vars.tablet {
-				// 	color: lime;
-				// }
 			}
 
 			&::after {
@@ -96,6 +97,7 @@
 	background-color: vars.$white;
 	box-shadow: 0 0 10px vars.$black;
 	border-radius: 10px;
+	z-index: 5;
 
 	&.activeCart {
 		display: flex;
@@ -110,5 +112,71 @@
 		background-color: vars.$grayishBlue;
 		border: none;
 		height: 1px;
+	}
+}
+// Tablet size
+.navLinks {
+	@include vars.tablet {
+		display: block;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+		position: fixed;
+		gap: 1rem;
+		left: 0;
+		top: 0;
+		padding: 2rem;
+		background-color: vars.$white;
+		box-shadow: 10rem 0 1rem 15rem vars.$black;
+		width: 50vw;
+		height: 100vh;
+		scale: 0;
+		transform-origin: left;
+		z-index: 2;
+		transition: all 300ms linear;
+
+		.tablet{
+			display: block;
+		}
+
+		.hamburgerClose {
+			display: block;
+			transition: all 300ms linear;
+			color: vars.$grayishBlue;
+			font-size: 1.5rem;
+			margin-bottom: 2rem;
+
+			&:hover {
+				color: vars.$orange;
+			}
+		}
+		li {
+			color: vars.$veryDarkBlue;
+			a {
+				color: inherit;
+				a:hover {
+					color: vars.$grayishBlue;
+				}
+				&:hover::after {
+					bottom: 0;
+				}
+			}
+		}
+	}
+}
+.user {
+	@include vars.tablet {
+		gap: 1.5rem;
+	}
+}
+.cartInfo{
+	@include vars.tablet{
+		width: 50vw;
+	}
+}
+// Mobile size
+.cartInfo{
+	@include vars.mobile{
+		width: 90vw;
 	}
 }

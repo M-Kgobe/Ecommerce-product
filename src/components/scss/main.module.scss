@@ -7,7 +7,7 @@
 	justify-content: center;
 	width: 50%;
 	gap: 3rem;
-	
+
 	.mainDisp {
 		width: 20rem;
 		height: 20rem;
@@ -16,7 +16,7 @@
 		border: 1px solid vars.$orange;
 		cursor: pointer;
 
-		a{
+		a {
 			display: none;
 		}
 		img {
@@ -106,47 +106,130 @@
 		}
 		.cartItems {
 			display: inline-flex;
-            gap: 1rem;
+			gap: 1rem;
 			max-width: 80%;
 
-            .adjustBtn{
-                display: flex;
-                background-color: vars.$lightGrayishBlue;
-                gap: 2rem;
-                padding: 1rem 2rem;
-                color: vars.$veryDarkBlue;
-                font-weight: 700;
+			.adjustBtn {
+				display: flex;
+				background-color: vars.$lightGrayishBlue;
+				gap: 2rem;
+				padding: 1rem 2rem;
+				color: vars.$veryDarkBlue;
+				font-weight: 700;
 
-                button{
-                    border: none;
-                    background-color: transparent;
-                    font-size: 1rem;
-                    color: vars.$orange;
-                    cursor: pointer;
-                    font-weight: 700;
-                    transition: all 300ms linear;
-                    &:hover{
-                        opacity: .7;
-                    }
-                }
-            }
-            .addToCart{
-                font-family: inherit;
-                font-weight: 700;
-                letter-spacing: 1px;
-                border: none;
-                border-radius: 10px;
-                width: 70%;
-                background-color: vars.$orange;
-                color: vars.$white;
-                cursor: pointer;
-                transition: all 300ms linear;
+				button {
+					border: none;
+					background-color: transparent;
+					font-size: 1rem;
+					color: vars.$orange;
+					cursor: pointer;
+					font-weight: 700;
+					transition: all 300ms linear;
+					&:hover {
+						opacity: 0.7;
+					}
+				}
+			}
+			.addToCart {
+				font-family: inherit;
+				font-weight: 700;
+				letter-spacing: 1px;
+				border: none;
+				border-radius: 10px;
+				width: 70%;
+				background-color: vars.$orange;
+				color: vars.$white;
+				cursor: pointer;
+				transition: all 300ms linear;
+				padding: 1rem;
 
-                &:hover{
-                    opacity: .7;
-                    box-shadow: 0 2rem 2rem vars.$paleOrange;
-                }
-            }
+				&:hover {
+					opacity: 0.7;
+					box-shadow: 0 2rem 2rem vars.$paleOrange;
+				}
+			}
+		}
+	}
+}
+// Tablet size
+.imgDisplay {
+	@include vars.tablet {
+		width: 100%;
+		background-color: vars.$paleOrange;
+		margin-bottom: 2rem;
+
+		.imgThumbs {
+			gap: 1rem;
+
+			li {
+				width: 2.5rem;
+				height: 2.5rem;
+			}
+		}
+	}
+}
+.hero {
+	@include vars.tablet {
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		padding: 3rem;
+
+		.priceCartInfo {
+			.prices {
+				display: flex;
+				gap: 1rem;
+				font-size: 1.6rem;
+				.price {
+					display: inline-block;
+					font-size: 1.3rem;
+				}
+			}
+			.cartItems {
+				max-width: 90%;
+				width: 100%;
+
+				.adjustBtn {
+					display: flex;
+					justify-content: space-between;
+					width: 40%;
+				}
+			}
+		}
+	}
+}
+// Mobile Size
+.imgDisplay {
+	@include vars.tablet {
+		background-color: unset;
+		.mainDisp {
+			width: 100%;
+			height: 100%;
+		}
+		.imgThumbs {
+			display: none;
+		}
+	}
+}
+.hero {
+	@include vars.mobile {
+		.priceCartInfo {
+			.prices {
+				width: 100%;
+
+				.price {
+					display: flex;
+					justify-content: flex-end;
+					width: 100%;
+				}
+			}
+			.cartItems {
+				flex-direction: column;
+				.adjustBtn,
+				.addToCart {
+					width: 100%;
+				}
+			}
 		}
 	}
 }
